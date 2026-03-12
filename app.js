@@ -107,47 +107,94 @@ License Plate CHEVY61, Hours Purchased: 3
 License Plate FORD101, Hours Purchased: 5
  */
 
-const parkingLots_A = {
-    name: "Short term",
-    hourly_rate: 5.00,
-    fees_collected: 0.0,
-    parked_cars: []
-}
-const parkingLots_B = {
-    name : "Garage",
-    hourly_rate: 2.00,
-    fees_collected: 0.0,
-    parked_cars: []
-}
+// const parkingLots_A = {
+//     name: "Short term",
+//     hourly_rate: 5.00,
+//     fees_collected: 0.0,
+//     parked_cars: []
+// }
+// const parkingLots_B = {
+//     name : "Garage",
+//     hourly_rate: 2.00,
+//     fees_collected: 0.0,
+//     parked_cars: []
+// }
 
-const car_1 = {
-    name: "CIVIC808",
-    hours_parked: 7.0,
-    amount_paid: 0.0
-}
-const car_2 = {
-    name: "CHEVY61",
-    hours_parked: 3.0,
-    amount_paid: 0.0
-}
-const car_3 = {
-    name: "FORD101",
-    hours_parked: 5.0,
-    amount_paid: 0.0
-}
-const car_4 = {
-    name: "TESLA155",
-    hours_parked: 1.0,
-    amount_paid: 0.0
-}
-const car_5 = {
-    name: "FASTCAR722",
-    hours_parked: 10.0,
-    amount_paid: 0.0
-}
+const parkingLots = [
+    {
+        name: "Short term",
+        hourly_rate: 5.0,
+        fees_collected: 0.0,
+        parked_car: []
+    },
+    {
+        name: "Garage",
+        hourly_rate: 2.0,
+        fees_collected: 0.0,
+        parked_car: []
+    }
+]
+
+// const car_1 = {
+//     name: "CIVIC808",
+//     hours_parked: 7.0,
+//     amount_paid: 0.0
+// }
+// const car_2 = {
+//     name: "CHEVY61",
+//     hours_parked: 3.0,
+//     amount_paid: 0.0
+// }
+// const car_3 = {
+//     name: "FORD101",
+//     hours_parked: 5.0,
+//     amount_paid: 0.0
+// }
+// const car_4 = {
+//     name: "TESLA155",
+//     hours_parked: 1.0,
+//     amount_paid: 0.0
+// }
+// const car_5 = {
+//     name: "FASTCAR722",
+//     hours_parked: 10.0,
+//     amount_paid: 0.0
+// }
+
+const car = [
+    {
+        id: "CIVIC808",
+        hours_parked: 7.0,
+        amount_paid: 0.0
+    },
+    {
+        id: "CHEVY61",
+        hours_parked: 3.0,
+        amount_paid: 0.0
+    },
+    {
+        id: "FORD101",
+        hours_parked: 5.0,
+        amount_paid: 0.0
+    },
+    {
+        id: "TESLA155",
+        hours_parked: 1.0,
+        amount_paid: 0.0
+    },
+    {
+        id: "FASTCAR722",
+        hours_parked: 10.0,
+        amount_paid: 0.0
+    }
+]
 
 const puchaseParking(customerLicensePlate, requestedParkingLotName, numberOfHoues) =>{
-    
+    for (let i =0; i < car.length; i++) {
+        if (car[i].id === customerLicensePlate) {
+
+        }
+    }
 }
 
 
