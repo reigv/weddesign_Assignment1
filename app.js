@@ -146,5 +146,8 @@ const car_5 = {
     amount_paid: 0.0
 }
 
+const puchaseParking(customerLicensePlate, requestedParkingLotName, numberOfHoues) =>{
+    
+}
 
 
