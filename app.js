@@ -135,66 +135,118 @@ const parkingLots = [
     }
 ]
 
-// const car_1 = {
-//     name: "CIVIC808",
-//     hours_parked: 7.0,
-//     amount_paid: 0.0
-// }
-// const car_2 = {
-//     name: "CHEVY61",
-//     hours_parked: 3.0,
-//     amount_paid: 0.0
-// }
-// const car_3 = {
-//     name: "FORD101",
-//     hours_parked: 5.0,
-//     amount_paid: 0.0
-// }
-// const car_4 = {
-//     name: "TESLA155",
-//     hours_parked: 1.0,
-//     amount_paid: 0.0
-// }
-// const car_5 = {
-//     name: "FASTCAR722",
-//     hours_parked: 10.0,
-//     amount_paid: 0.0
-// }
+const car_1 = {
+    id: "CIVIC808",
+    park_at: "Garage",
+    hours_parked: 7.0,
+    amount_paid: 0.0
+}
+const car_2 = {
+    id: "CHEVY61",
+    park_at: "Short term",
+    hours_parked: 3.0,
+    amount_paid: 0.0
+}
+const car_3 = {
+    id: "FORD101",
+    park_at: "Short term",
+    hours_parked: 5.0,
+    amount_paid: 0.0
+}
+const car_4 = {
+    id: "TESLA155",
+    park_at: "Garage",
+    hours_parked: 1.0,
+    amount_paid: 0.0
+}
+const car_5 = {
+    id: "FASTCAR722",
+    park_at: "Garage",
+    hours_parked: 10.0,
+    amount_paid: 0.0
+}
+const car_1_mod = {
+    id: "CIVIC808",
+    park_at: "Sports Stadium",
+    hours_parked: 7.0,
+    amount_paid: 0.0
+}
 
-const car = [
-    {
-        id: "CIVIC808",
-        hours_parked: 7.0,
-        amount_paid: 0.0
-    },
-    {
-        id: "CHEVY61",
-        hours_parked: 3.0,
-        amount_paid: 0.0
-    },
-    {
-        id: "FORD101",
-        hours_parked: 5.0,
-        amount_paid: 0.0
-    },
-    {
-        id: "TESLA155",
-        hours_parked: 1.0,
-        amount_paid: 0.0
-    },
-    {
-        id: "FASTCAR722",
-        hours_parked: 10.0,
-        amount_paid: 0.0
-    }
-]
+car_list = [car_2, car_3, car_1, car_4, car_5, car_1, car_1_mod]
+// const car = [
+//     {
+//         id: "CIVIC808",
+//         hours_parked: 7.0,
+//         amount_paid: 0.0
+//     },
+//     {
+//         id: "CHEVY61",
+//         hours_parked: 3.0,
+//         amount_paid: 0.0
+//     },
+//     {
+//         id: "FORD101",
+//         hours_parked: 5.0,
+//         amount_paid: 0.0
+//     },
+//     {
+//         id: "TESLA155",
+//         hours_parked: 1.0,
+//         amount_paid: 0.0
+//     },
+//     {
+//         id: "FASTCAR722",
+//         hours_parked: 10.0,
+//         amount_paid: 0.0
+//     }
+// ]
 
-const puchaseParking(customerLicensePlate, requestedParkingLotName, numberOfHoues) =>{
-    for (let i =0; i < car.length; i++) {
-        if (car[i].id === customerLicensePlate) {
+const puchaseParking = (customerLicensePlate, requestedParkingLotName, numberOfHours) =>{
+    let valid_lot = false;
+    let flag_duplicate_car = false;
+    let lot_found_id = -1;
+    let car_found_id = -1;
 
+
+    for (let i=0; i < parkingLots.length; i++) {
+        if (parkingLots[i].name === requestedParkingLotName) {
+            valid_lot = true;
+            lot_found_id = i;
+        }
+        // else {valid_lot =false;} // prevent overdirve
+
+        for (let j=0; j< parkingLots[i].parked_car.length; j++) {
+            if (parkingLots[i].parked_car[j] === customerLicensePlate) {
+                flag_duplicate_car = true;
+                car_found_id = j;
+            }
+            // else {
+            //     flag_duplicate_car = true;
+            //     car_found_id = j;
+            // }
         }
     }
+
+    if (valid_lot === true) {console.log("valid parking spot")}
+    else { console.log("invalid parking spot")}
+
+    if (flag_duplicate_car === true) {console.log("ERROR duplicate")}
+    else {console.log("valid no duplicate")}
+
+    if (valid_lot === true && flag_duplicate_car === false) {
+        parkingLots[lot_found_id].parked_car.push({customer_id:customerLicensePlate,
+                                                    duration: numberOfHours,
+                                                    paid_amount: numberOfHours*parkingLots[lot_found_id].hourly_rate
+                                                })
+    }
+
+    
+}
+
+// puchaseParking(car_2.id, "Short term", car_2.hours_parked);
+
+for (car of car_list) {
+    puchaseParking(car.id, car.park_at,car.hours_parked)
 }
 
 
