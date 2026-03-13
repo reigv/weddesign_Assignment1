@@ -249,4 +249,8 @@ for (car of car_list) {
     puchaseParking(car.id, car.park_at,car.hours_parked)
 }
 
+const printSummary=() => {
+    console.log(" ---- REPORT FOR " + parkingLots[0].name + " Parking ----- ");
+}
 
+printSummary();
