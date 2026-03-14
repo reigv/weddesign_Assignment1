@@ -250,7 +250,19 @@ for (car of car_list) {
 }
 
 const printSummary=() => {
-    console.log(" ---- REPORT FOR " + parkingLots[0].name + " Parking ----- ");
+    for (lot of parkingLots)
+        {console.log(" ---- REPORT FOR " + lot.name + " Parking ----- ");
+        console.log("Number of car parked: " + lot.parked_car.length);
+        console.log("Hourly Rate: $" + lot.hourly_rate.toFixed(2));
+        let total = 0.0;
+        for (car of lot.parked_car) {
+            total += car.paid_amount;
+        }
+        console.log("Total Fees Collected: $" + total.toFixed(2));
+        console.log("Parked Car List:");
+        for (car of lot.parked_car) {
+            console.log("License Plate " + car.customer_id + ", Hours Purchase: " + car.duration);
+        }}
 }
 
 printSummary();
